@@ -1,10 +1,40 @@
 import React from "react";
-import { Outlet, useLocation } from "react-router";
+import { Outlet, useLocation, useNavigate, useParams } from "react-router";
+
+const items = [
+  {
+    id: 1,
+    name: "Color1",
+    color: "blue",
+  },
+  {
+    id: 2,
+    name: "Color2",
+    color: "red",
+  },
+];
 
 export function Home() {
+  const navigate = useNavigate();
   return (
     <div>
       <h1>[Home]</h1>
+      {items.map((item) => (
+        <p key={item.id}>
+          {item.name} {item.color}
+          <span
+            style={{
+              marginLeft: "16px",
+              backgroundColor: item.color,
+              width: "50px",
+              height: "10px",
+              display: "inline-block",
+              cursor: "pointer",
+            }}
+            onClick={() => navigate(`/${item.id}`)}
+          ></span>
+        </p>
+      ))}
     </div>
   );
 }
@@ -115,5 +145,32 @@ export function Messgae() {
         sodales ligula in libero.
       </p>
     </section>
+  );
+}
+
+export function Detail() {
+  const navigate = useNavigate();
+  let { id } = useParams();
+  let foundItem = items.find((item) => item.id === parseInt(id));
+
+  return (
+    <div>
+      <button type="button" onClick={() => navigate(`/`)}>
+        Back home
+      </button>
+      <p>
+        Detail page for id: {foundItem.id} {foundItem.name}
+        <span
+          style={{
+            marginLeft: "16px",
+            backgroundColor: foundItem.color,
+            width: "500px",
+            height: "500px",
+            display: "block",
+            margin: "16px",
+          }}
+        ></span>
+      </p>
+    </div>
   );
 }

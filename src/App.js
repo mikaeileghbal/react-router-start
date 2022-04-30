@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import {
   About,
   Contact,
+  Detail,
   Events,
   History,
   Home,
@@ -31,6 +32,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path=":id" element={<Detail />} />
         <Route path="*" element={<NotFound404 />} />
       </Routes>
     </div>
