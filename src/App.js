@@ -21,20 +21,22 @@ function App() {
         <h1>React Router</h1>
         <TopNavigator />
       </header>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />}>
-          <Route path="services" element={<Services />} />
-          <Route path="history" element={<History />} />
-          <Route path="location" element={<Location />} />
-        </Route>
-        <Route path="about/message" element={<Messgae />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path=":id" element={<Detail />} />
-        <Route path="*" element={<NotFound404 />} />
-      </Routes>
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />}>
+            <Route path="services" element={<Services />} />
+            <Route path="history" element={<History />} />
+            <Route path="location" element={<Location />} />
+          </Route>
+          <Route path="about/message" element={<Messgae />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path=":id" element={<Detail />} />
+          <Route path="*" element={<NotFound404 />} />
+        </Routes>
+      </div>
     </div>
   );
 }

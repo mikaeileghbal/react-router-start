@@ -36,6 +36,10 @@
   }
 }
 
+.content {
+  padding: 16px;
+}
+
 nav ul li {
   display: inline-block;
   margin: 0 16px;
@@ -49,4 +53,12 @@ nav a {
   color: white;
   text-decoration: none;
   text-transform: capitalize;
+}
+
+button {
+  border: 1px solid deepskyblue;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: deepskyblue;
+  background-color: inherit;
 }

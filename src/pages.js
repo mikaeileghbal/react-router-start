@@ -27,7 +27,7 @@ export function Home() {
               marginLeft: "16px",
               backgroundColor: item.color,
               width: "50px",
-              height: "10px",
+              height: "20px",
               display: "inline-block",
               cursor: "pointer",
             }}
@@ -167,7 +167,7 @@ export function Detail() {
             width: "500px",
             height: "500px",
             display: "block",
-            margin: "16px",
+            margin: "16px 0",
           }}
         ></span>
       </p>
