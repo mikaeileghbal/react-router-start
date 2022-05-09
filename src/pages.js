@@ -1,5 +1,7 @@
 import React from "react";
 import { Outlet, useLocation, useNavigate, useParams } from "react-router";
+import { Link } from "react-router-dom";
+import { getInvoices } from "./data";
 
 const items = [
   {
@@ -64,6 +66,31 @@ export function Products() {
   );
 }
 
+export function Invoices() {
+  const invoices = getInvoices();
+  return (
+    <div>
+      <h1>[Invoices]</h1>
+      <nav
+        style={{
+          borderRight: "solid 1px",
+          padding: "1rem",
+        }}
+      >
+        {invoices.map((invoice) => (
+          <Link
+            style={{ color: "red", display: "block", margin: "1rem 0" }}
+            to={`/invoices/${invoice.number}`}
+            key={invoice.number}
+          >
+            {invoice.name}
+          </Link>
+        ))}
+      </nav>
+    </div>
+  );
+}
+
 export function Contact() {
   return (
     <div>
@@ -75,9 +102,9 @@ export function Contact() {
 export function NotFound404() {
   const location = useLocation();
   return (
-    <div>
+    <main>
       <h1>Resource not found at {location.pathname}</h1>
-    </div>
+    </main>
   );
 }
 

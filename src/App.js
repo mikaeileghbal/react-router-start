@@ -7,6 +7,7 @@ import {
   Events,
   History,
   Home,
+  Invoices,
   Location,
   Messgae,
   NotFound404,
@@ -32,6 +33,7 @@ function App() {
           <Route path="about/message" element={<Messgae />} />
           <Route path="/events" element={<Events />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/invoices" element={<Invoices />} />
           <Route path="/contact" element={<Contact />} />
           <Route path=":id" element={<Detail />} />
           <Route path="*" element={<NotFound404 />} />
@@ -58,6 +60,9 @@ function TopNavigator() {
         </li>
         <li>
           <Link to="/products">products</Link>
+        </li>
+        <li>
+          <Link to="/invoices">Invoices</Link>
         </li>
         <li>
           <Link to="/contact">contact</Link>
