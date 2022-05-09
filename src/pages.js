@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, useLocation, useNavigate, useParams } from "react-router";
-import { Link } from "react-router-dom";
-import { getInvoices } from "./data";
+import { Link, NavLink } from "react-router-dom";
+import { getInvoice, getInvoices } from "./data";
 
 const items = [
   {
@@ -78,16 +78,37 @@ export function Invoices() {
         }}
       >
         {invoices.map((invoice) => (
-          <Link
-            style={{ color: "red", display: "block", margin: "1rem 0" }}
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "red" : "black",
+                display: "block",
+                margin: "1rem 0",
+              };
+            }}
             to={`/invoices/${invoice.number}`}
             key={invoice.number}
           >
             {invoice.name}
-          </Link>
+          </NavLink>
         ))}
       </nav>
+      <Outlet />
     </div>
+  );
+}
+
+export default function Invoice() {
+  const params = useParams();
+  const invoice = getInvoice(parseInt(params.invoiceID, 10));
+  return (
+    <main>
+      <h2>Total due: {invoice.amount}</h2>
+      <p>
+        {invoice.name}: {invoice.number}
+      </p>
+      <p>Due date:{invoice.due}</p>
+    </main>
   );
 }
 

@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
-import {
+import Invoice, {
   About,
   Contact,
   Detail,
@@ -33,7 +33,9 @@ function App() {
           <Route path="about/message" element={<Messgae />} />
           <Route path="/events" element={<Events />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/invoices" element={<Invoices />} />
+          <Route path="/invoices" element={<Invoices />}>
+            <Route path=":invoiceID" element={<Invoice />} />
+          </Route>
           <Route path="/contact" element={<Contact />} />
           <Route path=":id" element={<Detail />} />
           <Route path="*" element={<NotFound404 />} />
